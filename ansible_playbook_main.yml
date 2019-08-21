@@ -1,0 +1,42 @@
+---
+# file: ansible main playbook 
+-  hosts: apigee
+   tags: ['os','utility']
+   name: utility
+   roles: 
+     - { role: node,become: yes}
+ 
+#Installation for 5 Node       
+# Install Data Store 
+-  hosts: ds
+   tags: ['ds']
+   name: Install Data store
+   roles:
+     - { role: ds,become: yes}
+     
+# Install Management server on node 1
+
+-  hosts: ms
+   tags: ['ms']
+   name: Install ms
+   roles:
+     - { role: ds,become: yes}
+
+#Install Router and message Processor on node 2 and 3
+
+-  hosts: rmp
+   name: mp and router
+   tags: ['rmp']
+   roles:
+     - { role: rmp,become: yes}
+
+#Install analytics on node 4 and node 5
+
+-  hosts: sax
+   name: Install Analytics on node 
+   tags: ['sax']
+   roles:
+     - { role: sax,become: yes}
+
+     
+   

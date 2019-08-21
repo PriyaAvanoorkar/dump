@@ -1,0 +1,9 @@
+---
+
+#Install Router and Message Processor
+  - name: Install Router and Message Processor on nodes 2 
+    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p rmp -f /tmp/config.txt'
+    tags: ['rmp']
+    when: rmp
+
+  

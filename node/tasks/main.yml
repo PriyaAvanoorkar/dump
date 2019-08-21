@@ -1,0 +1,47 @@
+---
+  - name: Disable Selinux
+    selinux:
+      policy: targeted
+      state: disabled
+
+  - name: yum
+    yum:
+      name: java
+      state: latest
+
+  - name: Download liscence file from S3
+    get_url:
+      url: https://aws-code-kubernetes.s3.eu-central-1.amazonaws.com/apigee_onprem/license.txt
+      dest: /tmp/license.txt
+      mode: '755'
+
+  - name: yum
+    yum:
+      name: ['yum-utils', 'yum-plugin-priorities']
+      state: latest
+  
+  - name: Download noarch
+    get_url:
+      url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+      dest: /home/centos/epel-release-latest-7.noarch.rpm
+
+  - name: Install package
+    yum:
+      name: /home/centos/epel-release-latest-7.noarch.rpm
+      state: present
+
+  - name: Download bootstrap file
+    get_url:
+       url: https://software.apigee.com/bootstrap_4.18.05.sh
+       dest: /tmp/bootstrap_4.18.05.sh
+
+  - name: Change Permission of bootstrap file
+    file:
+      path: /tmp/bootstrap_4.18.05.sh
+      mode: '755'
+
+  - name: Execute the script
+    command: 'sudo bash /tmp/bootstrap_4.18.05.sh apigeeuser={{apigeeuser}} apigeepassword={{apigeepass}}'
+
+  - name: Apigee component installation
+    command: /opt/apigee/apigee-service/bin/apigee-service apigee-setup install

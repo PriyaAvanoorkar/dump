@@ -1,0 +1,5 @@
+---
+ #Install Datastore 
+  - name: Install Analytics on node 4 
+    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p sax -f /tmp/config.txt'
+    tags: ['sax']

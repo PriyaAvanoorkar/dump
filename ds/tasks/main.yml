@@ -1,0 +1,24 @@
+---
+  - copy:
+    src: config
+    dest: '/tmp/config'
+
+  - name: Install Datastore cluster on nodes 1
+    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p ds -f /tmp/config'
+    tags: ['ds']
+    when: ds
+
+ 
+#Install Management Server 
+
+  - name: Install Management Server on node 1
+    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p ms -f /opt/apigee/configfile'
+    tags: ['ms']
+    when: ms
+
+#Restart edge 
+
+  - name: Restart Edge UI after installation
+    command: /opt/apigee/apigee-service/bin/apigee-service edge-ui restart
+    tags: ['restart']
+    
