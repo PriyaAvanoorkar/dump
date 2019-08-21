@@ -4,11 +4,7 @@
       policy: targeted
       state: disabled
 
-  - name: yum
-    yum:
-      name: java
-      state: latest
-
+ 
   - name: Download liscence file from S3
     get_url:
       url: https://aws-code-kubernetes.s3.eu-central-1.amazonaws.com/apigee_onprem/license.txt
