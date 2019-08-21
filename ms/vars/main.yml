@@ -1,0 +1,9 @@
+---
+# vars file for 5 node setup
+
+ADMIN_EMAIL: opdk@google.com
+APIGEE_ADMINPW: ADMIN_PASSWORD
+APIGEE_LDAPPW: LDAP_PASSWORD
+SMTPHOST: smtp.example.com
+SMTPUSER: smtp@example.com
+SMTPPASSWORD: SMTP_PASSWORD

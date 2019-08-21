@@ -1,0 +1,46 @@
+IP1="172.31.38.248"
+IP2="172.31.39.234"
+IP3="172.31.43.108"
+IP4="172.31.36.97"
+IP5="172.31.37.27"
+
+HOSTIP=$(hostname -i)
+ENABLE_SYSTEM_CHECK=y
+
+ADMIN_EMAIL="opdk@apigee.com"
+APIGEE_ADMINPW="Apigee11"
+
+LICENSE_FILE="/tmp/apigee/license.txt"
+MSIP=$IP1
+USE_LDAP_REMOTE_HOST=n
+LDAP_TYPE=1
+APIGEE_LDAPPW="Apigee11"
+MP_POD=gateway
+REGION=dc-1
+ZK_HOSTS="$IP1 $IP2 $IP3"
+ZK_CLIENT_HOSTS="$IP1 $IP2 $IP3"
+# Must use IP addresses for CASS_HOSTS, not DNS names.
+CASS_HOSTS="$IP1:1,1 $IP2:1,1 $IP3:1,1"
+USE_CASS_CLUSTER="y"
+
+USE_CASS_CLUSTERNAME="Apigee"
+CASS_AUTH="y"
+CASS_USERNAME="cassandra"
+CASS_PASSWORD="Apigee11"
+
+
+
+
+# Default is postgres
+PG_PWD=postgres
+PG_MASTER=$IP4
+PG_STANDBY=$IP5
+SKIP_SMTP=n
+SMTPHOST=smtp.example.com
+SMTPUSER=smtp@example.com
+# omit for no username
+SMTPPASSWORD=SMTP_PASSWORD
+# omit for no password
+SMTPSSL=n
+SMTPPORT=25
+SMTPMAILFROM="My Company <myco@company.com>"
