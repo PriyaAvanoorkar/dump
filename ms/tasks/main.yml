@@ -2,9 +2,16 @@
 
 
    #Install Management Server 
+  - name: Install dos2unix
+    yum:
+      name: dos2unix
+      state: latest
+
+  - name: Change file
+    command: dos2unix /root/demo/dump/config
 
   - name: Install Management Server on node 1
-    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p ms -f config'
+    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p ms -f /root/demo/dump/config'
     tags: ['ms']
     
     

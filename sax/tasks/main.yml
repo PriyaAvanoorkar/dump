@@ -1,5 +1,13 @@
 ---
+
+  - name: Install dos2unix
+    yum:
+      name: dos2unix
+      state: latest
+
+  - name: Change file
+    command: dos2unix /root/demo/dump/config
  #Install Datastore 
   - name: Install Analytics on node 4 
-    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p sax -f config'
+    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p sax -f /root/demo/dump/config'
     tags: ['sax']
