@@ -2,7 +2,7 @@
 
 
   - name: Install Datastore cluster on nodes 1
-    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p ds -f /root/demo/dump/config.txt'
+    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p ds -f config.txt'
     tags: ['ds']
-    
+   
     

@@ -4,7 +4,7 @@
    #Install Management Server 
 
   - name: Install Management Server on node 1
-    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p ms -f /root/demo/dump/config.txt'
+    command: 'sudo bash /opt/apigee/apigee-setup/bin/setup.sh -p ms -f config.txt'
     tags: ['ms']
     
     
